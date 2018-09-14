@@ -28,47 +28,47 @@ inherited Form1_iPhone55in: TForm1_iPhone55in
     Viewport.Width = 414.000000000000000000
     Viewport.Height = 628.000000000000000000
     inherited ListBoxGroupHeader1: TListBoxGroupHeader
-      Size.Width = 404.000000000000000000
+      Size.Width = 400.000000000000000000
       Size.Height = 22.000000000000000000
     end
     inherited ListBoxItem1: TListBoxItem
       Position.Y = 31.000000000000000000
-      Size.Width = 404.000000000000000000
+      Size.Width = 400.000000000000000000
       inherited radioA: TRadioButton
         Size.Width = 384.000000000000000000
       end
       inherited radioB: TRadioButton
-        Position.X = 10.000000000000000000
+        Position.X = 6.000000000000000000
         Size.Width = 384.000000000000000000
       end
     end
     inherited ListBoxGroupHeader2: TListBoxGroupHeader
       Position.Y = 103.000000000000000000
-      Size.Width = 404.000000000000000000
+      Size.Width = 400.000000000000000000
       Size.Height = 22.000000000000000000
     end
     inherited ListBoxItem2: TListBoxItem
       Position.Y = 131.000000000000000000
-      Size.Width = 404.000000000000000000
+      Size.Width = 400.000000000000000000
       inherited btnExibe: TButton
-        Size.Width = 384.000000000000000000
+        Size.Width = 380.000000000000000000
       end
     end
     inherited ListBoxGroupHeader3: TListBoxGroupHeader
       Position.Y = 199.000000000000000000
-      Size.Width = 404.000000000000000000
+      Size.Width = 400.000000000000000000
       Size.Height = 22.000000000000000000
     end
     inherited ListBoxItem3: TListBoxItem
       Position.Y = 227.000000000000000000
-      Size.Width = 404.000000000000000000
+      Size.Width = 400.000000000000000000
       inherited memoExibeDia: TMemo
-        Size.Width = 384.000000000000000000
-        Viewport.Width = 384.000000000000000000
+        Size.Width = 380.000000000000000000
+        Viewport.Width = 380.000000000000000000
         Viewport.Height = 195.000000000000000000
       end
       inherited popupDiaSemana: TPopupBox
-        Size.Width = 384.000000000000000000
+        Size.Width = 380.000000000000000000
         Size.Height = 30.000000000000000000
       end
     end

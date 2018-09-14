@@ -284,7 +284,7 @@ begin
 
   materia[0][6][1] := 'GSO';
 
-  materia[0][7][1] := 'LOO';
+  materia[0][7][1] := 'GSO';
 
   //Quarta [0][x][2]
 
@@ -296,26 +296,25 @@ begin
 
   materia[0][3][2] := 'TLB';
 
-  materia[0][4][2] := 'LOO';
+  materia[0][4][2] := 'TPI';
 
-  materia[0][5][2] := 'ASI';
+  materia[0][5][2] := 'LOO';
 
-  materia[0][6][2] := 'GSO';
+  materia[0][6][2] := 'ASI';
 
   materia[0][7][2] := 'Geografia';
 
   //Quinta [0][x][3]
 
-  aulalivre[0][0][3] := True;
-  materia [0][0][3] := 'Livre';
+  materia[0][0][3] := 'LOO';
 
-  materia[0][1][3] := 'Física';
+  materia[0][1][3] := 'LOO';
 
   materia[0][2][3] := 'Física';
 
-  materia[0][3][3] := 'ASI';
+  materia[0][3][3] := 'Física';
 
-  materia[0][4][3] := 'LOO';
+  materia[0][4][3] := 'ASI';
 
   materia[0][5][3] := 'Empreendedorismo';
 
@@ -338,9 +337,10 @@ begin
 
   materia[0][5][4] := 'Filosofia';
 
-  materia[0][6][4] := 'TLB';
+  materia[0][6][4] := 'TPI';
 
-  materia[0][7][4] := 'TLB';
+  aulalivre[0][7][4] := True;
+  materia [0][7][4] := 'Livre';
 
   //Segunda [1][x][0]
 
@@ -388,11 +388,11 @@ begin
 
   materia[1][3][2] := 'LOO';
 
-  materia[1][4][2] := 'ASI';
+  materia[1][4][2] := 'LOO';
 
-  materia[1][5][2] := 'GSO';
+  materia[1][5][2] := 'ASI';
 
-  materia[1][6][2] := 'ASI';
+  materia[1][6][2] := 'GSO';
 
   materia[1][7][2] := 'Geografia';
 
@@ -401,19 +401,20 @@ begin
   aulalivre[1][0][3] := True;
   materia [1][0][3] := 'Livre';
 
-  materia[1][1][3] := 'Física';
+  aulalivre[1][1][3] := True;
+  materia [1][1][3] := 'Livre';
 
   materia[1][2][3] := 'Física';
 
-  materia[1][3][3] := 'GSO';
+  materia[1][3][3] := 'Física';
 
-  materia[1][4][3] := 'TPI';
+  materia[1][4][3] := 'GSO';
 
   materia[1][5][3] := 'Empreendedorismo';
 
   materia[1][6][3] := 'Geografia';
 
-  materia[1][7][3] := 'LOO';
+  materia[1][7][3] := 'GSO';
 
   //Sexta [1][x][4]
 
@@ -429,10 +430,9 @@ begin
 
   materia[1][5][4] := 'Filosofia';
 
-  materia[1][6][4] := 'GSO';
+  materia[1][6][4] := 'ASI';
 
-  aulalivre[1][7][4] := True;
-  materia [1][7][4] := 'Livre';
+  materia [1][7][4] := 'TPI';
 
   diasemana := DayOfWeek(Date);
   case diasemana of
