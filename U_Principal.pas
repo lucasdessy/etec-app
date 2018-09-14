@@ -250,6 +250,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
 diasemana : Integer;
 begin
+  //ATUALIZAR HORARIOS
   //Segunda [0][x][0]
   materia[0][0][0] := 'Matemática';
 
