@@ -1,0 +1,96 @@
+inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
+  BorderStyle = None
+  ClientHeight = 720
+  ClientWidth = 450
+  DesignerMasterStyle = 0
+  inherited ToolBar1: TToolBar
+    Size.Width = 450.000000000000000000
+    inherited Label1: TLabel
+      Margins.Right = 10.000000000000000000
+      Size.Width = 430.000000000000000000
+    end
+    inherited lblTopo: TLabel
+      Position.Y = 21.000000000000000000
+      Size.Width = 440.000000000000000000
+      Size.Height = 24.000000000000000000
+    end
+  end
+  inherited ToolBar2: TToolBar
+    Position.Y = 672.000000000000000000
+    Size.Width = 450.000000000000000000
+    inherited Label2: TLabel
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 434.000000000000000000
+      Size.Height = 28.000000000000000000
+      TextSettings.Font.Size = 10.000000000000000000
+    end
+  end
+  inherited ListBox1: TListBox
+    Size.Width = 450.000000000000000000
+    Size.Height = 624.000000000000000000
+    Viewport.Width = 450.000000000000000000
+    Viewport.Height = 624.000000000000000000
+    inherited ListBoxGroupHeader1: TListBoxGroupHeader
+      TextSettings.Font.Size = 16.000000000000000000
+      StyledSettings = [Family, Style, Other]
+      Margins.Top = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 440.000000000000000000
+    end
+    inherited ListBoxItem1: TListBoxItem
+      Selectable = False
+      Position.Y = 41.000000000000000000
+      Size.Width = 440.000000000000000000
+      Size.Height = 62.000000000000000000
+      inherited radioA: TRadioButton
+        Size.Width = 191.000000000000000000
+        Size.Height = 50.000000000000000000
+      end
+      inherited radioB: TRadioButton
+        Align = Client
+        Size.Width = 209.000000000000000000
+        Size.Height = 50.000000000000000000
+      end
+    end
+    inherited ListBoxGroupHeader2: TListBoxGroupHeader
+      TextSettings.Font.Size = 16.000000000000000000
+      StyledSettings = [Family, Style, Other]
+      Position.Y = 109.000000000000000000
+      Size.Width = 440.000000000000000000
+    end
+    inherited ListBoxItem2: TListBoxItem
+      Selectable = False
+      Position.Y = 145.000000000000000000
+      Size.Width = 440.000000000000000000
+      inherited btnExibe: TButton
+        Size.Width = 420.000000000000000000
+      end
+    end
+    inherited ListBoxGroupHeader3: TListBoxGroupHeader
+      TextSettings.Font.Size = 16.000000000000000000
+      StyledSettings = [Family, Style, FontColor, Other]
+      Position.Y = 213.000000000000000000
+      Size.Width = 440.000000000000000000
+    end
+    inherited ListBoxItem3: TListBoxItem
+      Selectable = False
+      Position.Y = 249.000000000000000000
+      Size.Width = 440.000000000000000000
+      Size.Height = 366.000000000000000000
+      inherited memoExibeDia: TMemo
+        Align = Client
+        Margins.Top = 10.000000000000000000
+        Size.Width = 420.000000000000000000
+        Size.Height = 319.000000000000000000
+        Viewport.Width = 420.000000000000000000
+        Viewport.Height = 319.000000000000000000
+      end
+      inherited popupDiaSemana: TPopupBox
+        Margins.Top = 1.000000000000000000
+        Margins.Bottom = 1.000000000000000000
+        Position.Y = 1.000000000000000000
+        Size.Width = 420.000000000000000000
+      end
+    end
+  end
+end
