@@ -1,6 +1,6 @@
 # Cronograma M117
 
-### Edit Branch
+### Changelog 0.3:
 
-- Branch mais atualizada do repositório. 
-:)
+ - Novo ícone
+ - Mudança no nome do pacote e nome do aplicativo
