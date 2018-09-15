@@ -51,6 +51,7 @@ implementation
 {$R *.GGlass.fmx ANDROID}
 {$R *.SSW3.fmx ANDROID}
 {$R *.iPhone55in.fmx IOS}
+{$R *.Surface.fmx MSWINDOWS}
 
 procedure TForm1.btnExibeClick(Sender: TObject);
 var
