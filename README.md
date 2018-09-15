@@ -1,7 +1,6 @@
 # Cronograma M117
 
-### Changelog 0.2:
+### Changelog 0.3:
 
- - Matérias atualizadas
-
->  [Download](https://github.com/lucasdessy/etec-app/releases/tag/0.2)
+ - Novo ícone
+ - Mudança no nome do pacote e nome do aplicativo

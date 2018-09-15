@@ -45,12 +45,6 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
-{$R *.Windows.fmx MSWINDOWS}
-{$R *.Moto360.fmx ANDROID}
-{$R *.GGlass.fmx ANDROID}
-{$R *.SSW3.fmx ANDROID}
-{$R *.iPhone55in.fmx IOS}
 
 procedure TForm1.btnExibeClick(Sender: TObject);
 var
@@ -250,7 +244,6 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
 diasemana : Integer;
 begin
-  //ATUALIZAR HORARIOS
   //Segunda [0][x][0]
   materia[0][0][0] := 'Matemática';
 
