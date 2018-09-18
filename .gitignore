@@ -68,5 +68,5 @@ __recovery/
 Android/
 Win32/
 Win64/
-P_CronogramaM117.dproj.local
-P_CronogramaM117.stat
+*.dproj.local
+*.stat
