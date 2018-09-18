@@ -2,9 +2,9 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2018/08/08 23:54:22.000.655,=C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018/08/09 00:52:45.000.602,C:\Users\Lucas\Desktop\App\U_Principal.fmx=C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
-    <Transaction>2018/08/09 00:52:45.000.602,C:\Users\Lucas\Desktop\App\U_Principal.pas=C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018/08/09 00:53:09.000.740,C:\Users\Lucas\Desktop\App\P_CronogramaM117.dproj=C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2018/08/09 00:52:45.000.602,C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Lucas\Desktop\App\U_Principal.fmx</Transaction>
+    <Transaction>2018/08/09 00:52:45.000.602,C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Lucas\Desktop\App\U_Principal.pas</Transaction>
+    <Transaction>2018/08/09 00:53:09.000.740,C:\Users\Lucas\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Lucas\Desktop\App\P_CronogramaM117.dproj</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile Android=""/>
