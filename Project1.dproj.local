@@ -9,9 +9,9 @@
     <Transaction>2018/05/09 13:04:59.000.762,=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2018/06/07 09:03:08.000.313,=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2018/06/27 13:09:14.000.907,=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018/09/19 10:45:00.568,=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018/09/19 10:45:20.907,D:\Lucas\GitHub\etec-app\Unit1.pas=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018/09/19 10:45:20.907,D:\Lucas\GitHub\etec-app\Unit1.dfm=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2018/09/19 10:45:22.445,D:\Lucas\GitHub\etec-app\Project1.dproj=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2018/09/19 10:45:00.000.568,=\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/09/19 10:45:20.000.907,\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.dfm=D:\Lucas\GitHub\etec-app\Unit1.dfm</Transaction>
+    <Transaction>2018/09/19 10:45:20.000.907,\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Unit1.pas=D:\Lucas\GitHub\etec-app\Unit1.pas</Transaction>
+    <Transaction>2018/09/19 10:45:22.000.445,\\srv-arq-0\usuarios\m117-01\Meus Documentos\Embarcadero\Studio\Projects\Project1.dproj=D:\Lucas\GitHub\etec-app\Project1.dproj</Transaction>
   </Transactions>
 </BorlandProject>
