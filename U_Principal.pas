@@ -27,6 +27,7 @@ type
     ListBoxItem2: TListBoxItem;
     ListBoxItem3: TListBoxItem;
     Image1: TImage;
+    Image2: TImage;
     procedure btnExibeClick(Sender: TObject);
     procedure popupDiaSemanaChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
