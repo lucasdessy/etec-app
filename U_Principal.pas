@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, StrUtils, FMX.Menus, FMX.ExtCtrls, FMX.ScrollBox,
-  FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects;
+  FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects, System.ImageList, FMX.ImgList;
 
 type
   TForm1 = class(TForm)
@@ -28,6 +28,7 @@ type
     ListBoxItem3: TListBoxItem;
     Image1: TImage;
     Image2: TImage;
+    ImageList1: TImageList;
     procedure btnExibeClick(Sender: TObject);
     procedure popupDiaSemanaChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);

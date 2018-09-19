@@ -4,6 +4,7 @@ object Form1: TForm1
   Caption = 'Cronograma M117'
   ClientHeight = 626
   ClientWidth = 364
+  SystemStatusBar.BackgroundColor = claSlategray
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -3121,13 +3122,14 @@ object Form1: TForm1
       TabOrder = 4
       object btnExibe: TButton
         Align = Client
-        Margins.Left = 10.000000000000000000
+        Margins.Left = 150.000000000000000000
         Margins.Top = 15.000000000000000000
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 15.000000000000000000
-        Size.Width = 329.000000000000000000
+        Size.Width = 32.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
+        StyleLookup = 'searcheditbutton'
         TabOrder = 0
         Text = 'Exibir'
         OnClick = btnExibeClick
@@ -3196,5 +3198,11 @@ object Form1: TForm1
         Viewport.Height = 292.000000000000000000
       end
     end
+  end
+  object ImageList1: TImageList
+    Source = <>
+    Destination = <>
+    Left = 21
+    Top = 207
   end
 end
