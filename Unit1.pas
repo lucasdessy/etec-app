@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Rest.JSON, System.JSON;
 
 type
   TForm1 = class(TForm)
@@ -83,25 +83,21 @@ begin
   Edit2.Clear;
 end;
 
+
+
 procedure TForm1.Button5Click(Sender: TObject);
-var
-  jsonObj, jSubObj: TJSONObject;
-  ja: TJSONArray;
-  jv: TJSONValue;
-  i: Integer;
+var jjson : TJson;
+teste : String;
 begin
-  jsonObj := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(Memo1.Text), 0) as TJSONObject;
 
-  jv := jsonObj.Get('ATIVIDADES_SECUNDARIAS').JsonValue;
-  ja := jv as TJSONArray;
+  try
+    jjson.Create;
+    jjson.JsonEncode(Memo1.Text);
+    teste := jjson.ObjectToJsonString();
+    ShowMessage(teste);
 
-  ListBox1.Clear;
-
-  for i := 0 to ja.Size - 1 do
-  begin
-    jSubObj := (ja.Get(i) as TJSONObject);
-    jv := jSubObj.Get(0).JsonValue;
-    ListBox1.Items.Add(jv.Value);
+  finally
+    jjson.Free;
   end;
 
 end;
