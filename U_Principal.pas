@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, StrUtils, FMX.Menus, FMX.ExtCtrls, FMX.ScrollBox,
-  FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects, System.ImageList, FMX.ImgList;
+  FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects, System.ImageList, FMX.ImgList,
+  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc, FMX.Helpers.Android, UrlMon;
 
 type
   TForm1 = class(TForm)
@@ -29,6 +30,7 @@ type
     Image1: TImage;
     Image2: TImage;
     ImageList1: TImageList;
+    DadosXML: TXMLDocument;
     procedure btnExibeClick(Sender: TObject);
     procedure popupDiaSemanaChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -47,6 +49,15 @@ var
 implementation
 
 {$R *.fmx}
+
+function DownloadFile(Source, Dest: string): Boolean;
+begin
+try
+Result:= UrlDownloadToFile(nil, PChar(source),PChar(Dest), 0, nil) = 0;
+except
+Result:= False;
+end;
+end;
 
 procedure TForm1.btnExibeClick(Sender: TObject);
 var
@@ -244,190 +255,42 @@ begin
 end;
 procedure TForm1.FormCreate(Sender: TObject);
 var
-diasemana : Integer;
+diasemana, a, b, c : Integer;
+caminho : string;
 begin
-  //Segunda [0][x][0]
-  materia[0][0][0] := 'Matemática';
+  caminho := '/data/data/com.etec.cronogramaM117';
+  if DownloadFile('https://lucasdessy.github.io/etec-app/data/dados.xml',caminho + '/dados.xml') then
+  begin
+    ShowMessage('Baixado');
+  end
+  else
+  begin
+  ShowMessage('Erro');
+  end;
+    if FileExists(caminho + '/dados.xml') then
+  begin
+    DadosXML.LoadFromFile(caminho + '/dados.xml');
+    for a := 0 to 1 do
+    begin
+      for b := 0 to 4 do
+        begin
+          for c := 0 to 7 do
+          begin
+            materia[a][c][b] := (DadosXML.ChildNodes.FindNode('materia').ChildNodes[a].ChildNodes[b].ChildValues[c]);
+            if (materia[a][c][b] = 'Livre') then
+            begin
+              aulalivre[a][c][b] := True;
+            end;
+          end;
+        end;
+    end;
+  end
+  else
+  begin
+    ShowMessage('Arquivo Não existe!');
+  end;
 
-  materia[0][1][0] := 'Matemática';
 
-  materia[0][2][0] := 'LPL';
-
-  materia[0][3][0] := 'História';
-
-  materia[0][4][0] := 'História';
-
-  materia[0][5][0] := 'Química';
-
-  materia[0][6][0] := 'Química';
-
-  materia [0][7][0] := 'LPL';
-
-  //Terca [0][x][1]
-
-  materia[0][0][1] := 'Biologia';
-
-  materia[0][1][1] := 'Educação Física';
-
-  materia[0][2][1] := 'Educação Física';
-
-  materia[0][3][1] := 'Inglês';
-
-  materia[0][4][1] := 'Inglês';
-
-  materia[0][5][1] := 'GSO';
-
-  materia[0][6][1] := 'GSO';
-
-  materia[0][7][1] := 'GSO';
-
-  //Quarta [0][x][2]
-
-  materia[0][0][2] := 'LPL';
-
-  materia[0][1][2] := 'Matemática';
-
-  materia[0][2][2] := 'TLB';
-
-  materia[0][3][2] := 'TLB';
-
-  materia[0][4][2] := 'TPI';
-
-  materia[0][5][2] := 'LOO';
-
-  materia[0][6][2] := 'ASI';
-
-  materia[0][7][2] := 'Geografia';
-
-  //Quinta [0][x][3]
-
-  materia[0][0][3] := 'LOO';
-
-  materia[0][1][3] := 'LOO';
-
-  materia[0][2][3] := 'Física';
-
-  materia[0][3][3] := 'Física';
-
-  materia[0][4][3] := 'ASI';
-
-  materia[0][5][3] := 'Empreendedorismo';
-
-  materia[0][6][3] := 'Geografia';
-
-  aulalivre[0][7][3] := True;
-  materia [0][7][3] := 'Livre';
-
-  //Sexta [0][x][4]
-
-  materia[0][0][4]:= 'Sociologia';
-
-  materia[0][1][4] := 'LPL';
-
-  materia[0][2][4] := 'Matemática';
-
-  materia[0][3][4] := 'Biologia';
-
-  materia[0][4][4] := 'LPL';
-
-  materia[0][5][4] := 'Filosofia';
-
-  materia[0][6][4] := 'TPI';
-
-  aulalivre[0][7][4] := True;
-  materia [0][7][4] := 'Livre';
-
-  //Segunda [1][x][0]
-
-  materia[1][0][0] := 'Matemática';
-
-  materia[1][1][0] := 'Matemática';
-
-  materia[1][2][0] := 'LPL';
-
-  materia[1][3][0] := 'História';
-
-  materia[1][4][0] := 'História';
-
-  materia[1][5][0] := 'Química';
-
-  materia[1][6][0] := 'Química';
-
-  materia [1][7][0] := 'LPL';
-
-  //Terça [1][x][1]
-
-  materia[1][0][1] := 'Biologia';
-
-  materia[1][1][1] := 'Educação Física';
-
-  materia[1][2][1] := 'Educação Física';
-
-  materia[1][3][1] := 'Inglês';
-
-  materia[1][4][1] := 'Inglês';
-
-  materia[1][5][1] := 'TLB';
-
-  materia[1][6][1] := 'TLB';
-
-  materia[1][7][1] := 'TPI';
-
-  //Quarta [1][x][2]
-
-  materia[1][0][2] := 'LPL';
-
-  materia[1][1][2] := 'Matemática';
-
-  materia[1][2][2] := 'LOO';
-
-  materia[1][3][2] := 'LOO';
-
-  materia[1][4][2] := 'LOO';
-
-  materia[1][5][2] := 'ASI';
-
-  materia[1][6][2] := 'GSO';
-
-  materia[1][7][2] := 'Geografia';
-
-  //Quinta [1][x][3]
-
-  aulalivre[1][0][3] := True;
-  materia [1][0][3] := 'Livre';
-
-  aulalivre[1][1][3] := True;
-  materia [1][1][3] := 'Livre';
-
-  materia[1][2][3] := 'Física';
-
-  materia[1][3][3] := 'Física';
-
-  materia[1][4][3] := 'GSO';
-
-  materia[1][5][3] := 'Empreendedorismo';
-
-  materia[1][6][3] := 'Geografia';
-
-  materia[1][7][3] := 'GSO';
-
-  //Sexta [1][x][4]
-
-  materia[1][0][4] := 'Sociologia';
-
-  materia[1][1][4] := 'LPL';
-
-  materia[1][2][4] := 'Matemática';
-
-  materia[1][3][4] := 'Biologia';
-
-  materia[1][4][4] := 'LPL';
-
-  materia[1][5][4] := 'Filosofia';
-
-  materia[1][6][4] := 'ASI';
-
-  materia [1][7][4] := 'TPI';
 
   diasemana := DayOfWeek(Date);
   case diasemana of
