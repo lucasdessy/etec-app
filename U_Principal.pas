@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, StrUtils, FMX.Menus, FMX.ExtCtrls, FMX.ScrollBox,
   FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects, System.ImageList, FMX.ImgList,
-  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc,System.IOUtils
+  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc,System.IOUtils, IdHTTP
   {$IFDEF ANDROID}
   ,FMX.Helpers.Android
   {$ENDIF}
@@ -39,9 +39,9 @@ type
     DadosXML: TXMLDocument;
     procedure btnExibeClick(Sender: TObject);
     procedure popupDiaSemanaChange(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure radioAChange(Sender: TObject);
     procedure radioBChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     materia : array[0..1] of array[0..7] of array [0..4] of string;
     aulalivre: array[0..1] of array[0..7] of  array [0..4] of Boolean;
@@ -261,19 +261,21 @@ begin
   ShowMessage(mensagem);
 
 end;
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TForm1.FormShow(Sender: TObject);
 var
 diasemana, a, b, c : Integer;
-caminho : string;
+caminho, caminhoweb : string;
 begin
+  caminhoweb := 'https://lucasdessy.github.io/etec-app/data/dados.xml';
   {$IFDEF ANDROID}
-  caminho := TPath.GetSharedDownloadsPath + '/cronograma';
+  caminho := TPath.GetHomePath;
+  //Acabar
   {$ENDIF}
   {$IFDEF WIN32}
   caminho := ExtractFileDir(ParamStr(0));
   if FileExists(caminho + '\dados.xml') then
   begin
-    if (DownloadFile('https://lucasdessy.github.io/etec-app/data/dados.xml', caminho + '\dados.xml') = False) then
+    if (DownloadFile(caminhoweb, caminho + '\dados.xml') = False) then
     begin
       ShowMessage('Sem acesso a internet. Usando últimos dados baixados com sucesso.');
     end;
@@ -295,7 +297,7 @@ begin
   end
   else
   begin
-    if DownloadFile('https://lucasdessy.github.io/etec-app/data/dados.xml', caminho + '\dados.xml') then
+    if DownloadFile(caminhoweb, caminho + '\dados.xml') then
     begin
     DadosXML.LoadFromFile(caminho + '\dados.xml');
       for a := 0 to 1 do
