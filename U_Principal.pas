@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, StrUtils, FMX.Menus, FMX.ExtCtrls, FMX.ScrollBox,
   FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects, System.ImageList, FMX.ImgList,
-  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc, FMX.Helpers.Android, UrlMon;
+  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc {$IFDEF ANDROID}, FMX.Helpers.Android{$ENDIF}, System.IOUtils
+  {$IFDEF WIN32}, UrlMon{$ENDIF};
 
 type
   TForm1 = class(TForm)
@@ -50,14 +51,16 @@ implementation
 
 {$R *.fmx}
 
+{$IFDEF WIN32}
 function DownloadFile(Source, Dest: string): Boolean;
-begin
-try
-Result:= UrlDownloadToFile(nil, PChar(source),PChar(Dest), 0, nil) = 0;
-except
-Result:= False;
+  begin
+    try
+      Result:= UrlDownloadToFile(nil, PChar(source),PChar(Dest), 0, nil) = 0;
+    except
+      Result:= False;
+  end;
 end;
-end;
+{$ENDIF}
 
 procedure TForm1.btnExibeClick(Sender: TObject);
 var
@@ -258,40 +261,13 @@ var
 diasemana, a, b, c : Integer;
 caminho : string;
 begin
-  caminho := '/data/data/com.etec.cronogramaM117';
-  if DownloadFile('https://lucasdessy.github.io/etec-app/data/dados.xml',caminho + '/dados.xml') then
-  begin
-    ShowMessage('Baixado');
-  end
-  else
-  begin
-  ShowMessage('Erro');
-  end;
-    if FileExists(caminho + '/dados.xml') then
-  begin
-    DadosXML.LoadFromFile(caminho + '/dados.xml');
-    for a := 0 to 1 do
-    begin
-      for b := 0 to 4 do
-        begin
-          for c := 0 to 7 do
-          begin
-            materia[a][c][b] := (DadosXML.ChildNodes.FindNode('materia').ChildNodes[a].ChildNodes[b].ChildValues[c]);
-            if (materia[a][c][b] = 'Livre') then
-            begin
-              aulalivre[a][c][b] := True;
-            end;
-          end;
-        end;
-    end;
-  end
-  else
-  begin
-    ShowMessage('Arquivo Não existe!');
-  end;
-
-
-
+  {$IFDEF ANDROID}
+  caminho := TPath.GetSharedDownloadsPath + '/cronograma';
+  {$ENDIF}
+  {$IFDEF WIN32}
+  caminho := ExtractFileDir(ParamStr(0)) + '\cronograma';
+  {$ENDIF}
+  ShowMessage(caminho);
   diasemana := DayOfWeek(Date);
   case diasemana of
   2 : popupDiaSemana.ItemIndex := 0;
