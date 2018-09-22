@@ -7,8 +7,13 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, StrUtils, FMX.Menus, FMX.ExtCtrls, FMX.ScrollBox,
   FMX.Memo, FMX.ListBox, FMX.Layouts, FMX.Objects, System.ImageList, FMX.ImgList,
-  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc {$IFDEF ANDROID}, FMX.Helpers.Android{$ENDIF}, System.IOUtils
-  {$IFDEF WIN32}, UrlMon{$ENDIF};
+  Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc,System.IOUtils
+  {$IFDEF ANDROID}
+  ,FMX.Helpers.Android
+  {$ENDIF}
+  {$IFDEF WIN32}
+  ,UrlMon
+  {$ENDIF};
 
 type
   TForm1 = class(TForm)
@@ -265,9 +270,55 @@ begin
   caminho := TPath.GetSharedDownloadsPath + '/cronograma';
   {$ENDIF}
   {$IFDEF WIN32}
-  caminho := ExtractFileDir(ParamStr(0)) + '\cronograma';
+  caminho := ExtractFileDir(ParamStr(0));
+  if FileExists(caminho + '\dados.xml') then
+  begin
+    if (DownloadFile('https://lucasdessy.github.io/etec-app/data/dados.xml', caminho + '\dados.xml') = False) then
+    begin
+      ShowMessage('Sem acesso a internet. Usando últimos dados baixados com sucesso.');
+    end;
+    DadosXML.LoadFromFile(caminho + '\dados.xml');
+    for a := 0 to 1 do
+    begin
+      for b := 0 to 4 do
+        begin
+          for c := 0 to 7 do
+          begin
+            materia[a][c][b] := (DadosXML.ChildNodes.FindNode('materia').ChildNodes[a].ChildNodes[b].ChildValues[c]);
+            if (materia[a][c][b] = 'Livre') then
+            begin
+              aulalivre[a][c][b] := True;
+            end;
+          end;
+        end;
+    end;
+  end
+  else
+  begin
+    if DownloadFile('https://lucasdessy.github.io/etec-app/data/dados.xml', caminho + '\dados.xml') then
+    begin
+    DadosXML.LoadFromFile(caminho + '\dados.xml');
+      for a := 0 to 1 do
+      begin
+        for b := 0 to 4 do
+          begin
+            for c := 0 to 7 do
+            begin
+              materia[a][c][b] := (DadosXML.ChildNodes.FindNode('materia').ChildNodes[a].ChildNodes[b].ChildValues[c]);
+              if (materia[a][c][b] = 'Livre') then
+              begin
+                aulalivre[a][c][b] := True;
+              end;
+            end;
+          end;
+      end;
+    end
+    else
+    begin
+      ShowMessage('Sem internet disponível. Certifique-se de que haja uma conexão disponível.');
+    end;
+  end;
   {$ENDIF}
-  ShowMessage(caminho);
   diasemana := DayOfWeek(Date);
   case diasemana of
   2 : popupDiaSemana.ItemIndex := 0;
@@ -277,7 +328,6 @@ begin
   6 : popupDiaSemana.ItemIndex := 4;
   end;
   popupDiaSemanaChange(Self);
-
 end;
 
 procedure TForm1.popupDiaSemanaChange(Sender: TObject);
