@@ -268,8 +268,23 @@ caminho, caminhoweb : string;
 begin
   caminhoweb := 'https://lucasdessy.github.io/etec-app/data/dados.xml';
   {$IFDEF ANDROID}
-  caminho := TPath.GetHomePath;
-  //Acabar
+  caminho := TPath.GetSharedDownloadsPath;
+  DadosXML.LoadFromFile(caminhoweb);
+  DadosXML.SaveToFile(caminho + '/dados.xml');
+  for a := 0 to 1 do
+    begin
+      for b := 0 to 4 do
+        begin
+          for c := 0 to 7 do
+          begin
+            materia[a][c][b] := (DadosXML.ChildNodes.FindNode('materia').ChildNodes[a].ChildNodes[b].ChildValues[c]);
+            if (materia[a][c][b] = 'Livre') then
+            begin
+              aulalivre[a][c][b] := True;
+            end;
+          end;
+        end;
+    end;
   {$ENDIF}
   {$IFDEF WIN32}
   caminho := ExtractFileDir(ParamStr(0));
